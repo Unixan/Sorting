@@ -1,5 +1,20 @@
 const model = {
   filter: [],
+  filterCats: [
+    { cat: "Architecture", checked: false },
+    { cat: "Building", checked: false },
+    { cat: "Completed", checked: false },
+    { cat: "Collaboration", checked: false },
+    { cat: "Surrealism", checked: false },
+    { cat: "Art", checked: false },
+    { cat: "Exhibition", checked: false },
+    { cat: "Collage", checked: false },
+    { cat: "Digital", checked: false },
+    { cat: "Sculpture", checked: false },
+    { cat: "3Dprint", checked: false },
+    { cat: "3Dmodeling", checked: false },
+    { cat: "Utopic", checked: false },
+  ],
   filteredList: [],
   pictures: [
     {

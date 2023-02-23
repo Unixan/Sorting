@@ -1,5 +1,6 @@
 function updateView() {
   model.filteredList = [];
+  checkChecked();
   if (model.filter.length === 0) {
     model.filteredList = model.pictures;
   } else {
@@ -19,6 +20,7 @@ function updateView() {
     });
   }
   html = "";
+  html += filters();
   model.filteredList.forEach((picture) => {
     html += /*HTML*/ `
     <div> ${picture.title}</div>
@@ -26,4 +28,29 @@ function updateView() {
 
     document.getElementById("app").innerHTML = html;
   });
+}
+
+function filters() {
+  let filter = "";
+  model.filterCats.forEach((cat, index) => {
+    filter += /*HTML*/ `
+    <div>${cat.cat}</div><input type="checkbox" ${
+      cat.checked ? "checked" : ""
+    } oninput="model.filterCats[${index}].checked = !model.filterCats[${index}].checked; updateView()" />
+    `;
+  });
+
+  return filter;
+}
+
+function checkChecked() {
+  model.filter = [];
+  model.filterCats.forEach((cat) => {
+    category = cat.cat;
+    checkBox = cat.checked;
+    if (checkBox) {
+      model.filter.push(category);
+    }
+  });
+  console.log(model.filter);
 }
